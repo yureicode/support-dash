@@ -4,7 +4,6 @@ import * as React from "react"
 import * as RechartsPrimitive from "recharts"
 
 import { cn } from "@/lib/utils"
-import { TooltipProps } from "recharts" 
 
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: "", dark: ".dark" } as const
@@ -115,6 +114,29 @@ type TooltipPayloadItem = {
   }
 }
 
+interface ChartTooltipContentProps
+  extends React.ComponentProps<"div"> {
+  active?: boolean
+  payload?: TooltipPayloadItem[]
+  className?: string
+  indicator?: "line" | "dot" | "dashed"
+  hideLabel?: boolean
+  hideIndicator?: boolean
+  label?: React.ReactNode
+  labelFormatter?: (value: any, payload?: TooltipPayloadItem[]) => React.ReactNode
+  labelClassName?: string
+  formatter?: (
+    value: any,
+    name?: string,
+    entry?: TooltipPayloadItem,
+    index?: number,
+    payload?: TooltipPayloadItem[]
+  ) => React.ReactNode
+  color?: string
+  nameKey?: string
+  labelKey?: string
+}
+
 function ChartTooltipContent({
   active,
   payload,
@@ -129,13 +151,7 @@ function ChartTooltipContent({
   color,
   nameKey,
   labelKey,
-}: TooltipProps<TooltipPayloadItem, string> & React.ComponentProps<"div"> & {
-  hideLabel?: boolean
-  hideIndicator?: boolean
-  indicator?: "line" | "dot" | "dashed"
-  nameKey?: string
-  labelKey?: string
-}) {
+}: ChartTooltipContentProps) {
   const { config } = useChart()
 
   const tooltipLabel = React.useMemo(() => {
