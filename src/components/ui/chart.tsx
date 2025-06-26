@@ -111,7 +111,7 @@ type TooltipPayloadItem = {
   value?: number | string | null
   payload?: {
     fill?: string
-    [key: string]: any
+    [key: string]: unknown
   }
 }
 
