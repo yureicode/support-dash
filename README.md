@@ -11,10 +11,3 @@
 - [Tailwind CSS](https://tailwindcss.com) – utilitários CSS para estilização rápida e responsiva
 - [shadcn/ui](https://ui.shadcn.com) – componentes acessíveis e estilosos com base em Tailwind
 
-## 🔧 Banco de dados
-
-Ainda em definição. Avaliando opções conforme as necessidades da aplicação.
-
----
-
-Em breve mais informações conforme o projeto avança 🚧
